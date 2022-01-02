@@ -11,7 +11,7 @@ you can easly instance it in your Esp board
 ```c++
 void begin              ( uint16_t port, char *username, char *password); // Listening Port (1883),  apply your Username 
                                                                           // and Password
-void Handle             ( void );                                         // Loop function (using ESP32 you can place it 
+void handle             ( void );                                         // Loop function (using ESP32 you can place it 
                                                                           // in a specific thread)
 void distribuitePublish ( String topic, MQTTMessage &message);            // Publish a specific topic/message to all 
                                                                           // subscribed clients   
