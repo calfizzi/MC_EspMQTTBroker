@@ -13,8 +13,8 @@
 #include <MC_EspMQTT.h>
 
 const char* hostname  = "MQTTBroker";
-const char* ssid      = "MONKEY";
-const char* password  = "calfizzinathy";
+const char* ssid      = ""; // Please change it
+const char* password  = "";
 
 
 void startWiFi()
