@@ -1,8 +1,28 @@
+/*
+
+  Module: MC_EspMQTT
+  Author: Mario Calfizzi (MC)
+
+  Description:
+      **First ESP8266/ESP32 MQTT Broker And Client!**
+
+      Transform your ESP in a your home MQTT broker, take the control of your Smart Home devices.
+
+      This Library ia able to manage your MQTT comunication with your home devices. It is composed by an **MQTTBroker** and **MQTTClinet**. You can create in your Home Network One Broker and variuos clients, to manage Light, Swicth, etc.
+
+   Location: https://github.com/calfizzi/MC_EspMQTT
+
+*/
+
 #pragma once
 #ifndef MC_EspMQTT_h
 #define MC_EspMQTT_h
 #include <arduino.h>
-#include <WiFi.h>
+#if defined(ESP8266)
+  #include <ESP8266wifi.h>
+#elif defined(ESP32)
+  #include <WiFi.h>
+#endif
 #include <vector>
 #include <string>
 #include <functional>
