@@ -469,7 +469,7 @@ void      MQTTMessage::createPublishMessage                   ( String topic, ui
   //_getBuffer( buffer_size + buffer[1] );
   //buffer[2] = (topic.length()>>8) 
 }
-MQTTMessage  &MQTTMessage::createSubscribeMessage             ( void )
+void MQTTMessage::createSubscribeMessage             ( void )
 {
   this->_init();
   this->create(Type::Subscribe, QoSs::QoS1);
@@ -955,6 +955,7 @@ bool MQTTClient::connect          ( String clientID, String broker, String usern
   {
     mqttsdebug("MQTT Broker Connected!");
     MQTTMessage msg;
+    delay(500);
     msg.create(MQTTMessage::Type::Connect, MQTTMessage::QoS1 );
     msg.add("MQTT");
     msg.add((uint8_t) 4);
@@ -975,12 +976,16 @@ bool MQTTClient::connect          ( String clientID, String broker, String usern
     }
     if (!isConnected)
     {
+      mqttsdebug("No Answer From the Broker");
       client->stop();
       return false;
     }
     this->IP = this->client->remoteIP();
     if (this->onConnectCallback!=NULL)
+    {
+      mqttsdebug("onConnectCallback Calling");
       this->onConnectCallback(this);
+    }
     return true;
 
   }

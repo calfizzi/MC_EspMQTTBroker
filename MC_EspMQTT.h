@@ -180,7 +180,7 @@ protected:
     void            createPublishMessage    ( PublishMessage &publishMessage);
     void            createPublishMessage    ( String topic, String payload, QoSs qos = QoSs::QoS0, bool retain = false, bool dupFlag = false, uint16_t messageID = 0);
     void            createPublishMessage    ( String topic, uint8_t *payload, int payloadSize, QoSs qos = QoSs::QoS0, bool retain = false, bool dupFlag = false, uint16_t messageID = 0);
-    MQTTMessage     &createSubscribeMessage ( void );
+    void            createSubscribeMessage  ( void );
     PublishMessage  getAsPublishMessage     ( void );
 #if TEST_MQTTMESSAGE_MANAGER 
     void            setClient               ( MQTTClient *client) {this->client=client;}
@@ -211,6 +211,10 @@ public:
   void addTopic(String Topic, QoSs QoS = QoS1)
   {
     MQTTMessage::addSubscribeTopic(Topic, QoS);
+  }
+  void addTopic(const char *Topic, QoSs QoS = QoS1)
+  {
+    MQTTMessage::addSubscribeTopic(String(Topic), QoS);
   }
 };
 
