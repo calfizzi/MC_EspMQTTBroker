@@ -1507,7 +1507,7 @@ void  MQTTBroker::showClients             ( void )
   Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
 }
 
-void  MQTTBroker::Handle                  ( void )
+void  MQTTBroker::handle                  ( void )
 {
   if (server->hasClient())
   {
