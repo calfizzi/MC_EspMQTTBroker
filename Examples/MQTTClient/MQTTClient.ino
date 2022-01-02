@@ -15,7 +15,7 @@
 //byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
 byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xE0 };
 
-const char* ssid                  = "";
+const char* ssid                  = ""; // Please Change It
 const char* password              = ""; // Please Change It
 const char* hostname              = "MQTTClient";
 const char* mqtt_server           = ""; // Please Change It
