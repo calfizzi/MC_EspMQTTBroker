@@ -133,9 +133,8 @@ void setup()
 }
 
 void loop() {
-  if (!client.connected()) {
+  if (!client.connected())
     MQTTConnect();
-  }
   client.handle();
 }
 ```
